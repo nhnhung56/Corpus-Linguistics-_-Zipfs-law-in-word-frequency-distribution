@@ -1,0 +1,44 @@
+English.Word.Frequency <- read.csv("~/Desktop/Corpus class/English Word Frequency.csv", sep=";", stringsAsFactors=TRUE)
+str(English.Word.Frequency)
+attach(English.Word.Frequency)
+English.Word.Frequency
+Rel_Freq=prop.table(Frequency)
+
+ks.test(Frequency, "pnorm", mean=mean(Frequency), sd=sd(Frequency))
+
+
+plot (1:60023, cumsum(Rel_Freq), xlab="Frequency Rank", ylab = "Cumulative Frequency", main="Cumulative Relative Frequency of English Vocabulary")
+x=1:60023
+y=Rel_Freq
+plot (x,y,log="xy", xlab = "Frequency Rank", ylab= "Frequency (log)", main="English Corpus")
+
+Frequency
+rank(Frequency)
+English.Word.Frequency
+sumEng = sum(Frequency)
+plot (Frequency, xlab="RANK", ylab="FREQ", main="English Word Frequency")
+Rel_Freq=prop.table(Frequency)
+plot (Rel_Freq, xlab="Frequency Rank", ylab="Relative Frequency", main="Relative Frequency of English Vocabulary")
+
+
+
+
+Korean.Word.Frequency <- read.csv("~/Desktop/Corpus class/Korean Word Frequency.csv", sep=";", stringsAsFactors=TRUE)
+Korean.Word.Frequency
+str(Korean.Word.Frequency)
+attach(Korean.Word.Frequency)
+
+ks.test(Korean.Word.Frequency$Frequency, "pnorm", mean=mean(Korean.Word.Frequency$Frequency), sd=sd(Korean.Word.Frequency$Frequency))
+
+Rel_Freq=prop.table(Frequency)
+plot (1:88076, cumsum(Rel_Freq), xlab="Frequency Rank", ylab = "Cumulative Frequency", main="Cumulative Relative Frequency of Korean Vocabulary")
+
+rank(Frequency)
+Rel_Freq=prop.table(Frequency)
+plot (Rel_Freq, xlab="Frequency Rank", ylab="Relative Frequency", main="Relative Frequency of Korean Vocabulary")
+
+x=1:88076
+y=Rel_Freq
+plot (x,y,log="xy", xlab = "Frequency Rank", ylab= "Frequency (log)", main="Korean Corpus")
+options(scipen=100)
+
